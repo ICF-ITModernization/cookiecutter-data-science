@@ -2,6 +2,7 @@
 import dotenv
 import os
 import pathlib
+import sqlalchemy
 
 
 # Load project environment variables.
@@ -34,3 +35,13 @@ PATHS = {
     "images": ROOT / "reports" / "images",
     "templates": ROOT / "reports" / "templates",
 }
+
+
+def engine():
+    """Connect to this project's Voxco database.
+
+    Returns:
+        sqlalchemy.Engine: An entry point to a Voxco database.
+
+    """
+    return sqlalchemy.create_engine(URL)
